@@ -1,4 +1,4 @@
-import {View, Text, StyleSheet, Button} from 'react-native';
+import {View, Text, StyleSheet, Button, TouchableOpacity} from 'react-native';
 import React, {useState} from 'react';
 
 export const CounterScreen = () => {
@@ -12,19 +12,20 @@ export const CounterScreen = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>counter:{counter}</Text>
-      <Button
-        title="
-      +1"
+      <TouchableOpacity
+        style={styles.buttons}
         onPress={() => {
           addCounter();
-        }}
-      />
-      <Button
-        title="-1"
+        }}>
+        <Text style={styles.text}>+1</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.buttons}
         onPress={() => {
           minusCounter();
-        }}
-      />
+        }}>
+        <Text style={styles.text}> -1 </Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -39,6 +40,12 @@ const styles = StyleSheet.create({
     color: '#000',
     fontSize: 20,
     textAlign: 'center',
-    marginTop: -20,
+    // marginTop: -20,
+  },
+  buttons: {
+    backgroundColor: 'gray',
+    borderRadius: 40,
+    margin: 2,
+    padding: 6,
   },
 });
