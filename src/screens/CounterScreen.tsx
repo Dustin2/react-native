@@ -1,5 +1,6 @@
 import {View, Text, StyleSheet, Button, TouchableOpacity} from 'react-native';
 import React, {useState} from 'react';
+import {Fab} from '../components/Fab';
 
 export const CounterScreen = () => {
   const [counter, setCounter] = useState(0);
@@ -12,20 +13,9 @@ export const CounterScreen = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>counter:{counter}</Text>
-      <TouchableOpacity
-        style={styles.buttons}
-        onPress={() => {
-          addCounter();
-        }}>
-        <Text style={styles.text}>+1</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.buttons}
-        onPress={() => {
-          minusCounter();
-        }}>
-        <Text style={styles.text}> -1 </Text>
-      </TouchableOpacity>
+
+      <Fab text="-1" position="left" onPress={() => minusCounter()} />
+      <Fab text="+1" position="rigth" onPress={() => addCounter()} />
     </View>
   );
 };
@@ -33,19 +23,14 @@ export const CounterScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // backgroundColor: 'blue',
     justifyContent: 'center',
   },
   text: {
     color: '#000',
     fontSize: 20,
     textAlign: 'center',
-    // marginTop: -20,
+    top: -15,
   },
-  buttons: {
-    backgroundColor: 'gray',
-    borderRadius: 40,
-    margin: 2,
-    padding: 6,
-  },
+
+ 
 });
